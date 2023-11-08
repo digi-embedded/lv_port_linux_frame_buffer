@@ -45,7 +45,7 @@ static void backend_init(void)
     lv_wayland_init();
 
     /* Create a display */
-    lv_disp_t * disp = lv_wayland_create_window(800, 480, "lvgl wayland demo", NULL /*close_cb*/);
+    lv_disp_t * disp = lv_wayland_create_window(LV_DRV_DISP_HOR_RES, LV_DRV_DISP_VER_RES, "lvgl wayland demo", NULL /*close_cb*/);
 #elif USE_SDL
     sdl_init();
 
@@ -151,8 +151,8 @@ static void backend_init(void)
     lv_disp_drv_init(&disp_drv);
     disp_drv.draw_buf   = &disp_buf;
     disp_drv.flush_cb   = fbdev_flush;
-    disp_drv.hor_res    = 800;
-    disp_drv.ver_res    = 480;
+    disp_drv.hor_res    = LV_DRV_DISP_HOR_RES;
+    disp_drv.ver_res    = LV_DRV_DISP_VER_RES;
     lv_disp_drv_register(&disp_drv);
 
     evdev_init();

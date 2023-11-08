@@ -32,6 +32,8 @@
 #define LV_DRV_DISP_INCLUDE         <stdint.h>           /*Dummy include by default*/
 #define LV_DRV_DISP_CMD_DATA(val)  /*pin_x_set(val)*/    /*Set the command/data pin to 'val'*/
 #define LV_DRV_DISP_RST(val)       /*pin_x_set(val)*/    /*Set the reset pin to 'val'*/
+#define LV_DRV_DISP_HOR_RES        800
+#define LV_DRV_DISP_VER_RES        480
 
 /*---------
  *  SPI
@@ -95,8 +97,8 @@
 #endif
 
 #if USE_SDL || USE_SDL_GPU
-#  define SDL_HOR_RES     480
-#  define SDL_VER_RES     320
+#  define SDL_HOR_RES     LV_DRV_DISP_HOR_RES
+#  define SDL_VER_RES     LV_DRV_DISP_VER_RES
 
 /* Scale window by this factor (useful when simulating small screens) */
 #  define SDL_ZOOM        1

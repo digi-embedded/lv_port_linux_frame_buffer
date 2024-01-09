@@ -18,7 +18,8 @@
 
 static void backend_init(void);
 
-#define DISP_BUF_SIZE (128 * 1024)
+/* Originally 128 KiB, increase to 8 MiB to improve performance */
+#define DISP_BUF_SIZE (8 * 1024 * 1024)
 
 int main(void)
 {
